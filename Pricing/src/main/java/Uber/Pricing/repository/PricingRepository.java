@@ -9,5 +9,7 @@ import java.util.Optional;
 @Repository
 public interface PricingRepository extends JpaRepository<Pricing,Long> {
 
+    Optional<Pricing> findByDayOfWeekAndIsActive(String dayOfWeek, boolean isActive);
+    Optional<Pricing> findByIsActiveTrue();
 
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public interface RideService {
 
     Ride createRide(Ride ride);
-
+    public double calculatePrice(Ride ride);
 
 
 

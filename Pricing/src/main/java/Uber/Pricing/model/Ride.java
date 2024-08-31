@@ -26,8 +26,12 @@ public class Ride {
     private double timeHours;
     @Column(name = "waiting_Minutes")
     private double waitingMinutes;
-    @Column(name = "calculated_Price")
-    private double calculatedPrice;
+
+   @Column(name = "Price")
+    private double price;
+
+    //    @Column(name = "calculated_Price")
+//    private double calculatedPrice;
     @Column(name = "ride_Time")
     private LocalDateTime rideTime;
 

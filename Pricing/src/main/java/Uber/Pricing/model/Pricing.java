@@ -29,7 +29,7 @@ public class Pricing {
     private Double timeMultiplier;
     @Column(name = "waiting_Charge_Per_Minute")
     private Double waitingChargePerMinute;
-    @Column(name = "is_Active")
+    @Column(name = "is_active")
     private boolean isActive;
 
 }

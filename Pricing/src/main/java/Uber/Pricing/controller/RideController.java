@@ -5,6 +5,7 @@ import Uber.Pricing.service.RideService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,8 +18,14 @@ public class RideController {
 
 
     @PostMapping("/add")
-    public ResponseEntity<Ride> createRide(@RequestBody Ride ride){
-      Ride createdRide=rideService.createRide(ride);
-      return new ResponseEntity<>(createdRide, HttpStatus.CREATED);
+    public ResponseEntity<?> createRide(@Validated @RequestBody Ride ride) {
+        try {
+            Ride createdRide = rideService.createRide(ride);
+            return new ResponseEntity<>(createdRide, HttpStatus.CREATED);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
+
+
 }
